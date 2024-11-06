@@ -1,6 +1,179 @@
+$ pwd
+/workspace/class-variantcalling
+$ cd class-bsa
+$ cd L11_unix_intro
+$ cd ..
+$ pwd
+/workspace/class-variantcalling/class-bsa
+$ cd ..
+$ cd class-bsa
+$ pwd
+/workspace/class-variantcalling/class-bsa
+$ cd L11
+/bin/sh: 9: cd: can't cd to L11
+$ pwd
+/workspace/class-variantcalling/class-bsa
+$ cd L11_unix_intro
+$ pwd
+/workspace/class-variantcalling/class-bsa/L11_unix_intro
+$ pwd
+/workspace/class-variantcalling/class-bsa/L11_unix_intro
+$ cd ../L10
+/bin/sh: 14: cd: can't cd to ../L10
+$ pwd
+/workspace/class-variantcalling/class-bsa/L11_unix_intro
+$ cd ..
+$ pwd
+/workspace/class-variantcalling/class-bsa
+$ ls
+L04_ngs                 L11_unix_intro         L15_varcall_calling     L18_R_functions-plotting  L22_RNAseq_enrichment
+L05_file-formats        L12_unix_continue      L16_varcall_annotation  L20_RNAseq_count-de       LICENSE
+L10_setup_environments  L14_varcall_alignment  L17_intro_R             L21_RNAseq_clustering     README.md
+$ cd L10_setup_environments
+$ pwd
+/workspace/class-variantcalling/class-bsa/L10_setup_environments
+$ cd ..
+$ cd ..
+$ pwd
+/workspace/class-variantcalling
+$ cd class-bsa/L11_unix_intro
+$ pwd
+/workspace/class-variantcalling/class-bsa/L11_unix_intro
+$ ls
+appunti.sh
+$ ls -l
+total 0
+-rw-r--r-- 1 gitpod gitpod 0 Nov  6 15:27 appunti.sh
+$ mkdir cartella
+$ ls -l
+total 0
+-rw-r--r-- 1 gitpod gitpod 0 Nov  6 15:27 appunti.sh
+drwxr-xr-x 2 gitpod gitpod 6 Nov  6 15:53 cartella
+$ ls
+appunti.sh  cartella
+$ ls -F
+appunti.sh  cartella/
+$ mkdir -p cartella/sottocartella/sottosottocartella
+$ cd cartella/sottocartella
+$ pwd
+/workspace/class-variantcalling/class-bsa/L11_unix_intro/cartella/sottocartella
+$ touch file.txt
+$ ls -l
+total 4
+-rw-r--r-- 1 gitpod gitpod 11 Nov  6 16:07 file.txt
+drwxr-xr-x 2 gitpod gitpod  6 Nov  6 16:01 sottosottocartella
+$ cp file.txt file2.txt 
+$ ls -l
+total 8
+-rw-r--r-- 1 gitpod gitpod 11 Nov  6 16:11 file2.txt
+-rw-r--r-- 1 gitpod gitpod 11 Nov  6 16:07 file.txt
+drwxr-xr-x 2 gitpod gitpod  6 Nov  6 16:01 sottosottocartella
+$ rm file2.txt
+$ rm sottosottocartella
+rm: cannot remove 'sottosottocartella': Is a directory
+$ rm -r sottosottocartella
+$ touch pippo.txt
+$ mv pippo.txt file.txt
+$ mv file.txt ../.
+$ mv file.txt ../.
+mv: cannot stat 'file.txt': No such file or directory
+$ pwd
+/workspace/class-variantcalling/class-bsa/L11_unix_intro/cartella/sottocartella
+$ cd ..
+$ pwd
+/workspace/class-variantcalling/class-bsa/L11_unix_intro/cartella
+$ ls
+file.txt  sottocartella
+$ mw file.txt ../.
+/bin/sh: 50: mw: not found
+$ mv file.txt ../.
+$ ls
+sottocartella
+$ cd ..
+$ ls
+appunti.sh  cartella  file.txt
+$ ls -l
+total 4
+-rw-r--r-- 1 gitpod gitpod  0 Nov  6 16:11 appunti.sh
+drwxr-xr-x 3 gitpod gitpod 27 Nov  6 16:24 cartella
+-rw-r--r-- 1 gitpod gitpod  5 Nov  6 16:26 file.txt
+$ head file.txt
 riga uno
 riga due
 riga tre
 riga quattro
 riga cinque
-riga sei
+riga sei$ tail file.txt
+riga uno
+riga due
+riga tre
+riga quattro
+riga cinque
+riga sei$ head -n 3 file.txt 
+riga uno
+riga due
+riga tre
+$ tail -n 3 file.txt
+riga quattro
+riga cinque
+riga sei$ tail -n +3 file.txt
+riga tre
+riga quattro
+riga cinque
+riga sei$ tail -n +4 file.txt head -n +5 file.txt
+==> file.txt <==
+riga cinque
+riga seitail: cannot open 'head' for reading: No such file or directory
+
+==> file.txt <==
+riga cinque
+riga sei$ tail -n +4 file.txt | head -n +5 file.txt
+riga uno
+riga due
+riga tre
+riga quattro
+riga cinque
+$ head -n +5 file.txt | tail -n +4 file.txt
+riga quattro
+riga cinque
+riga sei$ tail -n +4 file.txt | head -n +2 file.txt
+riga uno
+riga due
+$ tail -n +4 file.txt | head -n 2 file.txt
+riga uno
+riga due
+$ pwd
+/workspace/class-variantcalling/class-bsa/L11_unix_intro
+$ nome=francesco
+$ echo $nome
+francesco
+$ variabile=1
+$ echo $variabile
+1
+$ echo "$variabile\n"
+1
+
+$ echo -e "$variabile\n"
+-e 1
+
+$ echo "$nome lescai"
+francesco lescai
+$ echo "$cognome lescai"
+ lescai
+$ git add *
+$ git commit -m "appunti"
+[main ffd9ec9] appunti
+ 2 files changed, 6 insertions(+)
+ create mode 100644 class-bsa/L11_unix_intro/appunti.sh
+ create mode 100644 class-bsa/L11_unix_intro/file.txt
+$ git push
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 474 bytes | 237.00 KiB/s, done.
+Total 6 (delta 2), reused 1 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/sabmos-unipv/class-variantcalling.git
+   285b3b1..ffd9ec9  main -> main
+$ 
