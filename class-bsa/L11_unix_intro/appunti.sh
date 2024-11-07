@@ -1,3 +1,4 @@
+07-11
 root@codespaces-bd7a61:/workspaces/class-variantcalling# pwd
 /workspaces/class-variantcalling
 root@codespaces-bd7a61:/workspaces/class-variantcalling# cd class-bsa/
@@ -179,7 +180,61 @@ root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_conti
 for filename in $(ls *.bam); do echo "il mio file preferito" = $filename"
 > done
 
-casino
+soluzione prof + casino
+
+gitpod@sabmosunipv-classvarian-1li88xud6d7:/workspace/class-variantcalling$ cd class-bsa/
+gitpod@sabmosunipv-classvarian-1li88xud6d7:/workspace/class-variantcalling/class-bsa$ cd L12_unix_continue/loop_files/
+gitpod@sabmosunipv-classvarian-1li88xud6d7:/workspace/class-variantcalling/class-bsa/L12_unix_continue/loop_files$ ls
+sample_10.bai  sample_1.bai  sample_2.bai  sample_3.bai  sample_4.bai  sample_5.bai  sample_6.bai  sample_7.bai  sample_8.bai  sample_9.bai
+sample_10.bam  sample_1.bam  sample_2.bam  sample_3.bam  sample_4.bam  sample_5.bam  sample_6.bam  sample_7.bam  sample_8.bam  sample_9.bam
+gitpod@sabmosunipv-classvarian-1li88xud6d7:/workspace/class-variantcalling/class-bsa/L12_unix_continue/loop_files$ for filename in $(ls *.bai);do mv $filename ${filename%bai}bam.bai; done
+gitpod@sabmosunipv-classvarian-1li88xud6d7:/workspace/class-variantcalling/class-bsa/L12_unix_continue/loop_files$ ls -l
+total 0
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_10.bam
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_10.bam.bai
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_1.bam
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_1.bam.bai
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_2.bam
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_2.bam.bai
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_3.bam
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_3.bam.bai
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_4.bam
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_4.bam.bai
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_5.bam
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_5.bam.bai
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_6.bam
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_6.bam.bai
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_7.bam
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_7.bam.bai
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_8.bam
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_8.bam.bai
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_9.bam
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:20 sample_9.bam.bai
+gitpod@sabmosunipv-classvarian-1li88xud6d7:/workspace/class-variantcalling/class-bsa/L12_unix_continue/loop_files$ mkdir disastro
+gitpod@sabmosunipv-classvarian-1li88xud6d7:/workspace/class-variantcalling/class-bsa/L12_unix_continue/loop_files$ cd disastro/
+gitpod@sabmosunipv-classvarian-1li88xud6d7:/workspace/class-variantcalling/class-bsa/L12_unix_continue/loop_files/disastro$ for num in {1..9}
+> do
+> touch "file_test${num}.txt"
+> done
+gitpod@sabmosunipv-classvarian-1li88xud6d7:/workspace/class-variantcalling/class-bsa/L12_unix_continue/loop_files/disastro$ ls -l
+total 0
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:34 file_test1.txt
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:34 file_test2.txt
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:34 file_test3.txt
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:34 file_test4.txt
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:34 file_test5.txt
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:34 file_test6.txt
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:34 file_test7.txt
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:34 file_test8.txt
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:34 file_test9.txt
+gitpod@sabmosunipv-classvarian-1li88xud6d7:/workspace/class-variantcalling/class-bsa/L12_unix_continue/loop_files/disastro$ for filename in $(ls *.txt)
+> do
+> mv $filename {filename%bai}bam.bai
+> done
+gitpod@sabmosunipv-classvarian-1li88xud6d7:/workspace/class-variantcalling/class-bsa/L12_unix_continue/loop_files/disastro$ ls -l
+total 0
+-rw-r--r-- 1 gitpod gitpod 0 Nov  7 19:34 {filename%bai}bam.bai
+gitpod@sabmosunipv-classvarian-1li88xud6d7:/workspace/class-variantcalling/class-bsa/L12_unix_continue/loop_files/disastro$
 
 root@codespaces-bd7a61:/workspaces/class-variantcalling# cd class-bsa/
 root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa# cd L12_unix_continue/
