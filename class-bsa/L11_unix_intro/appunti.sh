@@ -1,3 +1,186 @@
+root@codespaces-bd7a61:/workspaces/class-variantcalling# pwd
+/workspaces/class-variantcalling
+root@codespaces-bd7a61:/workspaces/class-variantcalling# cd class-bsa/
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa# cd L12_unix_continue/
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# titolo="macro_analysis_report"
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo $titolo
+macro_analysis_report
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo ${titolo}
+macro_analysis_report
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo ${titolo}new
+macro_analysis_reportnew
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo $titolonew
+
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo ${titolo#macro_}
+analysis_report
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo ${titolo#macro}
+_analysis_report
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo ${titolo#macr}
+o_analysis_report
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo ${titolo#pippo}
+macro_analysis_report
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo ${titolo#analysis}
+macro_analysis_report
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo ${titolo%report}
+macro_analysis_
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo ${titolo%_report}
+macro_analysis
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo ${titolo%repor}
+macro_analysis_report
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo $titolo
+macro_analysis_report
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo ${titolo#macro} | echo ${titolo%report}
+macro_analysis_
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# ls -l
+total 12
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 loop_files
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 loop_read
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 sed
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# touch report.txt
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# ls -l
+total 12
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 loop_files
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 loop_read
+-rw-rw-rw-  1 root root    0 Nov  7 10:23 report.txt
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 sed
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# nomefile="report.txt"
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# echo $nomefile
+report.txt
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# mv report.txt report.tsv
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# les -l
+bash: les: command not found
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# ls -l
+total 12
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 loop_files
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 loop_read
+-rw-rw-rw-  1 root root    0 Nov  7 10:23 report.tsv
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 sed
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# mv report.tsv $nomefile
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# ls -l
+total 12
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 loop_files
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 loop_read
+-rw-rw-rw-  1 root root    0 Nov  7 10:23 report.txt
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 sed
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# mv ${nomefile} ${nomefile%txt}tsv
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# ls -l
+total 12
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 loop_files
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 loop_read
+-rw-rw-rw-  1 root root    0 Nov  7 10:23 report.tsv
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 sed
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# for i in {1..5}
+> do
+> echo "il numero di questo giro $i"
+> done
+il numero di questo giro 1
+il numero di questo giro 2
+il numero di questo giro 3
+il numero di questo giro 4
+il numero di questo giro 5
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# for num in {1..5}
+> do
+> echo "il mio numero preferito = $sum"
+> done
+il mio numero preferito = 
+il mio numero preferito = 
+il mio numero preferito = 
+il mio numero preferito = 
+il mio numero preferito = 
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# for num in {1..5}
+> do
+> echo "il mio numero preferito = $num"
+> done
+il mio numero preferito = 1
+il mio numero preferito = 2
+il mio numero preferito = 3
+il mio numero preferito = 4
+il mio numero preferito = 5
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# ls -l
+total 12
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 loop_files
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 loop_read
+-rw-rw-rw-  1 root root    0 Nov  7 10:23 report.tsv
+drwxrwxrwx+ 2 root root 4096 Nov  7 09:54 sed
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# cd loop_files/
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue/loop_files# ls -l
+total 0
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_10.bai
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_10.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_1.bai
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_1.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_2.bai
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_2.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_3.bai
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_3.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_4.bai
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_4.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_5.bai
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_5.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_6.bai
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_6.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_7.bai
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_7.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_8.bai
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_8.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_9.bai
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_9.bam
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue/loop_files# ls *.bam
+sample_10.bam  sample_1.bam  sample_2.bam  sample_3.bam  sample_4.bam  sample_5.bam  sample_6.bam  sample_7.bam  sample_8.bam  sample_9.bam
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue/loop_files# ls -l *.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_10.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_1.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_2.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_3.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_4.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_5.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_6.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_7.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_8.bam
+-rw-rw-rw- 1 root root 0 Nov  7 09:54 sample_9.bam
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue/loop_files# ls *.bai
+sample_10.bai  sample_1.bai  sample_2.bai  sample_3.bai  sample_4.bai  sample_5.bai  sample_6.bai  sample_7.bai  sample_8.bai  sample_9.bai
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue/loop_files# for test in $(ls *.bam)
+> do
+> echo $test
+> done
+sample_10.bam
+sample_1.bam
+sample_2.bam
+sample_3.bam
+sample_4.bam
+sample_5.bam
+sample_6.bam
+sample_7.bam
+sample_8.bam
+sample_9.bam
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue/loop_files# for filename in `ls *.bam`
+> do
+> echo "il mio file preferito = $filename"
+> done
+il mio file preferito = sample_10.bam
+il mio file preferito = sample_1.bam
+il mio file preferito = sample_2.bam
+il mio file preferito = sample_3.bam
+il mio file preferito = sample_4.bam
+il mio file preferito = sample_5.bam
+il mio file preferito = sample_6.bam
+il mio file preferito = sample_7.bam
+il mio file preferito = sample_8.bam
+il mio file preferito = sample_9.bam
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue/loop_files# fore filename in $(ls *.bam);
+bash: fore: command not found
+root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue/loop_files# for filename in $(ls *.bam);
+> do
+> echo "il mio file preferito" = $filename"
+> done
+> 
+> 
+for filename in $(ls *.bam); do echo "il mio file preferito" = $filename"
+> done
+
+casino
+
 root@codespaces-bd7a61:/workspaces/class-variantcalling# cd class-bsa/
 root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa# cd L12_unix_continue/
 root@codespaces-bd7a61:/workspaces/class-variantcalling/class-bsa/L12_unix_continue# cd loop_f
